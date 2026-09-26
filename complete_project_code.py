@@ -40,7 +40,7 @@ def load_dataset():
             urllib.request.urlretrieve(url, csv_file)
             
     df = pd.read_csv(csv_file)
-    print(f'✓ Successfully loaded {len(df):,} transactions ({df.shape[1]} columns).')
+    print(f'[OK] Successfully loaded {len(df):,} transactions ({df.shape[1]} columns).')
     return df
 
 # ------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ def run_eda(df, output_dir='images'):
     plt.tight_layout()
     fig.savefig(os.path.join(output_dir, 'eda_branch_city.png'), dpi=300)
     plt.close()
-    print(f'✓ Saved EDA figures to {output_dir}/')
+    print(f'[OK] Saved EDA figures to {output_dir}/')
 
 # ------------------------------------------------------------------------------
 # 4. SUPERVISED MACHINE LEARNING (DECISION TREE & LOGISTIC REGRESSION)
@@ -232,7 +232,7 @@ def build_and_evaluate_models(df, output_dir='images'):
     plt.tight_layout()
     fig.savefig(os.path.join(output_dir, 'ml_roc_curves.png'), dpi=300)
     plt.close()
-    print(f'✓ Saved ML evaluation plots to {output_dir}/')
+    print(f'[OK] Saved ML evaluation plots to {output_dir}/')
     return dt, lr, benchmark_df
 
 # ------------------------------------------------------------------------------
@@ -259,4 +259,4 @@ if __name__ == '__main__':
     run_eda(df_clean)
     build_and_evaluate_models(df_clean)
     generate_recommendations()
-    print('\n✓ Entire Supermarket Sales Analytics & ML Pipeline Completed Successfully!')
+    print('\n[OK] Entire Supermarket Sales Analytics & ML Pipeline Completed Successfully!')
